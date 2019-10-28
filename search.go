@@ -50,7 +50,9 @@ func (r *SearchRequest) params() url.Values {
 	params.Set("q", r.Q)
 	params.Set("type", r.Type)
 	params.Set("title", r.Title)
-	params.Set("release_title", r.ReleaseTitle)
+	if r.ReleaseTitle != "" {
+		params.Set("release_title", r.ReleaseTitle)
+	}
 	params.Set("credit", r.Credit)
 	params.Set("artist", r.Artist)
 	params.Set("anv", r.Anv)
